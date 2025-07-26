@@ -1,16 +1,16 @@
-/* Variables CSS para paleta de colores */
+
 :root {
-  --primary-color: #ff0000;       /* Rojo vibrante */
-  --secondary-color: #cc0000;     /* Rojo más oscuro para hover */
-  --background-dark: #000000;     /* Fondo negro */
-  --text-light: #ffffff;          /* Texto blanco */
-  --box-background: #1a1a1a;      /* Fondo cajas */
-  --box-text: #ffffff;            /* Texto cajas */
-  --link-color: #ff0000;          /* Links rojo */
-  --link-hover-color: #ff4d4d;    /* Hover link rojo claro */
+  --primary-color: #ff0000;     
+  --secondary-color: #cc0000;    
+  --background-dark: #000000;   
+  --text-light: #ffffff;          
+  --box-background: #1a1a1a;      
+  --box-text: #ffffff;            
+  --link-color: #ff0000;          
+  --link-hover-color: #ff4d4d;    
 }
 
-/* Reset y layout base */
+
 html, body {
   height: 100%;
   margin: 0;
@@ -26,7 +26,7 @@ html, body {
   min-height: 100vh;
 }
 
-/* Contenedor principal flexible */
+
 main {
   flex: 1;
   padding: 50px 15px;
@@ -62,7 +62,7 @@ header {
   font-size: 1.8rem;
 }
 
-/* Nav links */
+
 nav a {
   color: var(--text-light);
   font-weight: 600;
@@ -74,7 +74,7 @@ nav a {
   transition: color 0.3s ease;
 }
 
-/* Línea roja debajo de links al hover y active */
+/* Línea roja */
 nav a::after {
   content: '';
   position: absolute;
@@ -339,11 +339,11 @@ footer {
   flex-shrink: 0;
 }
 .profile-photo {
-  border: 1px solid var(--primary-color); /* marco rojo acorde a tu paleta */
-  padding: 5px; /* para que el borde no quede pegado a la imagen */
-  border-radius: px; /* bordes redondeados */
+  border: 1px solid var(--primary-color); /* marco rojo */
+  padding: 5px; 
+  border-radius: px; 
   box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4); /* sombra roja suave */
-  max-width: 100%; /* que no se salga del contenedor */
+  max-width: 100%; 
   margin-left: 150px; /* separación a la derecha del texto */
   display: block;
 }
