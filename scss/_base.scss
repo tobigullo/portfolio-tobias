@@ -1,4 +1,6 @@
-// Reset básico (integrado aquí para simplificar)
+@use 'variable' as *;
+
+// Reset básico
 *,
 *::before,
 *::after {
@@ -7,30 +9,28 @@
   padding: 0;
 }
 
-// Estilos generales de HTML y Body
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: $background-dark;
-  color: $text-light; // Color de texto general
-  font-family: $font-family-poppins; // Fuente general
-  font-size: 14px; // Base font size
+  color: $text-light;
+  font-family: $font-family-poppins;
+  font-size: 14px;
   line-height: 1.6;
-  overflow-x: hidden; // Previene scroll horizontal
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
 main {
-  flex: 1; // Ocupa el espacio restante
+  flex: 1;
   padding: 50px 15px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-// Animación de entrada para el título principal (ejemplo)
 @keyframes fadeInScale {
   from {
     opacity: 0;
@@ -42,12 +42,10 @@ main {
   }
 }
 
-// Aplicar animación solo en la página de inicio
 .index main h1 {
   animation: fadeInScale 1s ease-out forwards;
 }
 
-// Estilos generales de tipografía
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   margin-bottom: $spacing-unit;
@@ -58,13 +56,12 @@ h1 { font-size: 2.25rem; }
 h2 { font-size: 1.75rem; }
 h3 { font-size: 1.4rem; }
 
-// Clases de texto
 .text-rojo {
   color: $primary-color;
 }
 
 .text-white-50 {
-  color: rgba($text-light, 0.5) !important; // Mantener el !important de Bootstrap si es necesario
+  color: rgba($text-light, 0.5) !important;
 }
 
 .lead {

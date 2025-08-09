@@ -1,0 +1,18 @@
+# Dependencias de Node.js
+/node_modules
+
+# Archivos de log
+*.log
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE (ej. VS Code)
+.vscode/
+
+# Archivos generados por SASS/CSS (si no los quieres versionar)
+# Si tu style.css se genera a partir de SCSS y no lo editas directamente,
+# podrías considerar ignorarlo si solo quieres versionar los SCSS.
+# css/style.css
+# css/style.css.map

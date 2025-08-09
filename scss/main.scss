@@ -1,11 +1,20 @@
-// Importa las variables, mixins y placeholders
-@import 'variables';
-// Importa los estilos base y tipografía
-@import 'base';
+@use 'variable' as *;
+@use 'base' as *;
 
-// --- A PARTIR DE AQUÍ, TODO EL RESTO DEL CSS ---
+// Placeholder para estilos base de cajas
+%box-base {
+  background-color: $box-background;
+  color: $box-text;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(black, 0.5);
+  @include transition(transform, 0.3s, ease);
 
-// Header
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba($primary-color, 0.6);
+  }
+}
+
 header {
   background: transparent !important;
   color: $text-light;
@@ -65,7 +74,6 @@ header {
     }
   }
 
-  // Responsive para el header
   @include breakpoint-down(md) {
     padding: 0.8rem 10px;
     .header-left {
@@ -88,7 +96,6 @@ header {
   }
 }
 
-// Footer
 footer {
   text-align: center;
   padding: 15px;
@@ -98,7 +105,6 @@ footer {
   margin-top: auto;
 }
 
-// Contenedores generales para skills y proyectos
 .skills-container,
 .projects-container {
   display: flex;
@@ -114,10 +120,9 @@ footer {
   }
 }
 
-// Estilos para skill-box y project-box (usando placeholder)
 .skill-box,
 .project-box {
-  @extend %box-base; // Hereda los estilos base de caja
+  @extend %box-base;
   min-width: 120px;
   height: 120px;
   display: flex;
@@ -136,7 +141,6 @@ footer {
     color: $primary-color;
   }
 
-  // Responsive para skill-box y project-box
   @include breakpoint-down(md) {
     min-width: 100px;
     height: 100px;
@@ -156,12 +160,11 @@ footer {
   }
 }
 
-// Estilos específicos para project-box (adicionales a %box-base)
 .project-box {
-  height: auto; // Permitir que la altura se ajuste al contenido
-  min-height: 200px; // Altura mínima para proyectos
+  height: auto;
+  min-height: 200px;
   padding: 20px;
-  justify-content: flex-start; // Alinear contenido al inicio
+  justify-content: flex-start;
   text-align: left;
 
   h3 {
@@ -175,27 +178,25 @@ footer {
     font-size: 0.9rem;
     color: rgba($text-light, 0.7);
     margin-bottom: 15px;
-    flex-grow: 1; // Permite que el párrafo ocupe el espacio disponible
+    flex-grow: 1;
   }
 
-  // Ajuste para la grilla de proyectos de Bootstrap
   &.col {
-    flex: 0 0 auto; // Evita que Bootstrap sobrescriba el ancho mínimo
-    width: calc(33.333% - 20px); // Ancho para 3 columnas con gap
-    max-width: 350px; // Limita el ancho máximo de cada caja de proyecto
+    flex: 0 0 auto;
+    width: calc(33.333% - 20px);
+    max-width: 350px;
 
     @include breakpoint-down(lg) {
-      width: calc(50% - 15px); // 2 columnas en pantallas medianas
+      width: calc(50% - 15px);
     }
 
     @include breakpoint-down(md) {
-      width: calc(100% - 15px); // 1 columna en pantallas pequeñas
-      max-width: 400px; // Limita el ancho en móvil para que no sea demasiado grande
+      width: calc(100% - 15px);
+      max-width: 400px;
     }
   }
 }
 
-// Estilos para botones
 .btn-primary {
   background-color: $primary-color !important;
   border-color: $primary-color !important;
@@ -212,7 +213,6 @@ footer {
   }
 }
 
-// Estilos para botones dentro de project-box
 .project-links {
   margin-top: 15px;
   display: flex;
@@ -223,13 +223,13 @@ footer {
     font-size: 0.8rem;
     padding: 5px 10px;
     border-radius: 3px;
+
     i {
       margin-right: 5px;
     }
   }
 }
 
-// Estilos para formularios
 form {
   max-width: 600px;
   margin: 0 auto;
@@ -262,7 +262,6 @@ form {
   }
 }
 
-// Estilos para la foto de perfil en About
 .profile-photo {
   border: 1px solid $primary-color;
   padding: 5px;
@@ -279,7 +278,6 @@ form {
   }
 }
 
-// Si tuvieras una "image-box" genérica, podrías usar un placeholder o mixin
 .image-box {
   background-color: $box-background;
   width: 250px;
@@ -295,4 +293,9 @@ form {
   font-weight: 700;
   color: $box-text;
   font-size: 1.6rem;
+}
+body.index {
+  .skills-container {
+    margin-top: 150px;
+  }
 }
