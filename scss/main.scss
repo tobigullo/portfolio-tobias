@@ -1,0 +1,298 @@
+// Importa las variables, mixins y placeholders
+@import 'variables';
+// Importa los estilos base y tipografía
+@import 'base';
+
+// --- A PARTIR DE AQUÍ, TODO EL RESTO DEL CSS ---
+
+// Header
+header {
+  background: transparent !important;
+  color: $text-light;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-unit 15px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  .header-left {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: $primary-color;
+    text-decoration: none;
+
+    span {
+      font-weight: 900;
+      color: $primary-color;
+      margin-left: 6px;
+      font-size: 1.8rem;
+    }
+  }
+
+  nav {
+    a {
+      color: $text-light;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      margin-left: 20px;
+      text-decoration: none;
+      position: relative;
+      @include transition(color, 0.3s, ease);
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 0%;
+        bottom: -4px;
+        left: 0;
+        background-color: $primary-color;
+        @include transition(width, 0.3s, ease);
+      }
+
+      &:hover,
+      &.active {
+        color: $primary-color;
+      }
+
+      &:hover::after,
+      &.active::after {
+        width: 100%;
+      }
+    }
+  }
+
+  // Responsive para el header
+  @include breakpoint-down(md) {
+    padding: 0.8rem 10px;
+    .header-left {
+      font-size: 1.4rem;
+    }
+    nav a {
+      margin-left: 8px;
+      font-size: 0.8rem;
+    }
+  }
+
+  @include breakpoint-down(sm) {
+    .header-left {
+      font-size: 1.2rem;
+    }
+    nav a {
+      margin-left: 6px;
+      font-size: 0.75rem;
+    }
+  }
+}
+
+// Footer
+footer {
+  text-align: center;
+  padding: 15px;
+  background: transparent !important;
+  color: $text-light;
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+// Contenedores generales para skills y proyectos
+.skills-container,
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 15px;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  @include breakpoint-down(md) {
+    gap: 15px;
+  }
+}
+
+// Estilos para skill-box y project-box (usando placeholder)
+.skill-box,
+.project-box {
+  @extend %box-base; // Hereda los estilos base de caja
+  min-width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+
+  i {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    color: $primary-color;
+  }
+
+  // Responsive para skill-box y project-box
+  @include breakpoint-down(md) {
+    min-width: 100px;
+    height: 100px;
+    font-size: 0.85rem;
+    i {
+      font-size: 2rem;
+    }
+  }
+
+  @include breakpoint-down(sm) {
+    min-width: 80px;
+    height: 80px;
+    font-size: 0.7rem;
+    i {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Estilos específicos para project-box (adicionales a %box-base)
+.project-box {
+  height: auto; // Permitir que la altura se ajuste al contenido
+  min-height: 200px; // Altura mínima para proyectos
+  padding: 20px;
+  justify-content: flex-start; // Alinear contenido al inicio
+  text-align: left;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: $primary-color;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: rgba($text-light, 0.7);
+    margin-bottom: 15px;
+    flex-grow: 1; // Permite que el párrafo ocupe el espacio disponible
+  }
+
+  // Ajuste para la grilla de proyectos de Bootstrap
+  &.col {
+    flex: 0 0 auto; // Evita que Bootstrap sobrescriba el ancho mínimo
+    width: calc(33.333% - 20px); // Ancho para 3 columnas con gap
+    max-width: 350px; // Limita el ancho máximo de cada caja de proyecto
+
+    @include breakpoint-down(lg) {
+      width: calc(50% - 15px); // 2 columnas en pantallas medianas
+    }
+
+    @include breakpoint-down(md) {
+      width: calc(100% - 15px); // 1 columna en pantallas pequeñas
+      max-width: 400px; // Limita el ancho en móvil para que no sea demasiado grande
+    }
+  }
+}
+
+// Estilos para botones
+.btn-primary {
+  background-color: $primary-color !important;
+  border-color: $primary-color !important;
+  color: $text-light !important;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 5px;
+  @include transition(background-color, 0.3s, ease);
+
+  &:hover {
+    background-color: $secondary-color !important;
+    border-color: $secondary-color !important;
+  }
+}
+
+// Estilos para botones dentro de project-box
+.project-links {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 3px;
+    i {
+      margin-right: 5px;
+    }
+  }
+}
+
+// Estilos para formularios
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba($box-background, 0.85);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(black, 0.7);
+  text-align: left;
+
+  label {
+    color: $text-light;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .form-control {
+    background-color: #333 !important;
+    color: $text-light !important;
+    border: 1px solid #555 !important;
+    padding: 10px 15px;
+    border-radius: 5px;
+    @include transition(border-color, 0.3s, ease);
+
+    &:focus {
+      border-color: $primary-color !important;
+      box-shadow: 0 0 0 0.3rem rgba($primary-color, 0.3) !important;
+      background-color: #444 !important;
+    }
+  }
+}
+
+// Estilos para la foto de perfil en About
+.profile-photo {
+  border: 1px solid $primary-color;
+  padding: 5px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba($primary-color, 0.4);
+  display: block;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+
+  @include breakpoint-down(md) {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+// Si tuvieras una "image-box" genérica, podrías usar un placeholder o mixin
+.image-box {
+  background-color: $box-background;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 3px solid $primary-color;
+  box-shadow: 0 0 12px rgba($primary-color, 0.6);
+  font-weight: 700;
+  color: $box-text;
+  font-size: 1.6rem;
+}

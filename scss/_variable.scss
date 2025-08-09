@@ -1,0 +1,56 @@
+// Colores
+$primary-color: #ff0000;
+$secondary-color: #cc0000;
+$background-dark: #000000;
+$text-light: #ffffff;
+$box-background: #1a1a1a;
+$box-text: #ffffff;
+$link-color: #ff0000;
+$link-hover-color: #ff4d4d;
+
+// Breakpoints para Responsive Design
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+// Fuentes
+$font-family-poppins: 'Poppins', sans-serif;
+
+// Espaciados y tamaños generales
+$spacing-unit: 1rem; // 16px por defecto
+
+// Mixin para media queries (Mobile First)
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// Mixin para media queries (Desktop First)
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// Mixin para transiciones comunes
+@mixin transition($property: all, $duration: 0.3s, $timing-function: ease) {
+  transition: $property $duration $timing-function;
+}
+
+// Placeholder para estilos base de cajas (skill-box, project-box, social-icon)
+%box-base {
+  background-color: $box-background;
+  color: $box-text;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(black, 0.5);
+  @include transition(transform, 0.3s, ease); // Usando mixin de transición
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba($primary-color, 0.6);
+  }
+}

@@ -1,0 +1,84 @@
+// Reset básico (integrado aquí para simplificar)
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Estilos generales de HTML y Body
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: $background-dark;
+  color: $text-light; // Color de texto general
+  font-family: $font-family-poppins; // Fuente general
+  font-size: 14px; // Base font size
+  line-height: 1.6;
+  overflow-x: hidden; // Previene scroll horizontal
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; // Ocupa el espacio restante
+  padding: 50px 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Animación de entrada para el título principal (ejemplo)
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Aplicar animación solo en la página de inicio
+.index main h1 {
+  animation: fadeInScale 1s ease-out forwards;
+}
+
+// Estilos generales de tipografía
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: $spacing-unit;
+  color: $primary-color;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.4rem; }
+
+// Clases de texto
+.text-rojo {
+  color: $primary-color;
+}
+
+.text-white-50 {
+  color: rgba($text-light, 0.5) !important; // Mantener el !important de Bootstrap si es necesario
+}
+
+.lead {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main p {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.small {
+  font-size: 0.85rem;
+}

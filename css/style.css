@@ -1,0 +1,373 @@
+:root {
+  --primary-color: #ff0000;
+  --secondary-color: #cc0000;
+  --background-dark: #000000;
+  --text-light: #ffffff;
+  --box-background: #1a1a1a;
+  --box-text: #ffffff;
+  --link-color: #ff0000;
+  --link-hover-color: #ff4d4d;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  overflow-x: hidden;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 50px 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  background: transparent !important;
+  color: var(--text-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 15px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* Nombre y símbolo en header */
+.header-left {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.header-left span {
+  font-weight: 900;
+  color: var(--primary-color);
+  margin-left: 6px;
+  font-size: 1.8rem;
+}
+
+nav a {
+  color: var(--text-light);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-left: 20px;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Línea roja */
+nav a::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--primary-color);
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: transparent !important;
+  color: var(--text-light);
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+/* Textos rojos para títulos y destacados */
+.text-rojo {
+  color: var(--primary-color);
+}
+
+/* Cajas para skills, proyectos, etc */
+.skills-container,
+.projects-container,
+.contact-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 15px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.skill-box,
+.project-box,
+.icon {
+  background-color: var(--box-background);
+  color: var(--box-text);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  min-width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-box i,
+.icon i {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+}
+
+.skill-box:hover,
+.project-box:hover,
+.icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(255,0,0,0.6);
+}
+
+/* Imagen redonda */
+.image-box {
+  background-color: var(--box-background);
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 0 12px rgba(255,0,0,0.6);
+  font-weight: 700;
+  color: var(--box-text);
+  font-size: 1.6rem;
+}
+
+/* Formularios */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(26, 26, 26, 0.85);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+  text-align: left;
+}
+
+form label {
+  color: var(--text-light);
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+form .form-control {
+  background-color: #333 !important;
+  color: var(--text-light) !important;
+  border: 1px solid #555 !important;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form .form-control:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 0.3rem rgba(255,0,0,0.3) !important;
+  background-color: #444 !important;
+}
+
+/* Botones */
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--text-light) !important;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+}
+
+/* Titulos */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.4rem; }
+
+/* Iconos sociales en el home */
+.icon-links {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.icon-links a {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  transition: color 0.3s ease;
+}
+
+.icon-links a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  nav a {
+    margin-left: 10px;
+    font-size: 0.85rem;
+  }
+  .skills-container,
+  .projects-container,
+  .contact-icons {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  header {
+    padding: 0.8rem 10px;
+  }
+  .header-left {
+    font-size: 1.4rem;
+  }
+  nav a {
+    margin-left: 8px;
+    font-size: 0.8rem;
+  }
+  .skill-box,
+  .project-box,
+  .icon {
+    min-width: 100px;
+    height: 100px;
+    font-size: 0.85rem;
+  }
+  .skill-box i,
+  .icon i {
+    font-size: 2rem;
+  }
+  .image-box {
+    width: 200px;
+    height: 200px;
+  }
+  form {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .header-left {
+    font-size: 1.2rem;
+  }
+  nav a {
+    margin-left: 6px;
+    font-size: 0.75rem;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .skill-box,
+  .project-box,
+  .icon {
+    min-width: 80px;
+    height: 80px;
+    font-size: 0.7rem;
+  }
+  .skill-box i,
+  .icon i {
+    font-size: 1.5rem;
+  }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+/* Mejoras aplicadas aquí */
+.profile-photo {
+  border: 1px solid var(--primary-color); /* marco rojo */
+  padding: 5px;
+  border-radius: 50%; /* Corregido a 50% para hacerla circular */
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4); /* sombra roja suave */
+  max-width: 100%;
+  /* margin-left: 150px; */ /* Eliminado el margen fijo */
+  /* El centrado se maneja con flexbox en el HTML para mayor flexibilidad */
+  display: block; /* Asegura que margin auto funcione si se usa */
+  width: 250px; /* Establece un ancho fijo para la imagen */
+  height: 250px; /* Establece una altura fija para la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+}
+
+/* Ajuste para el tamaño de la imagen de perfil en pantallas más pequeñas */
+@media (max-width: 767.98px) {
+  .profile-photo {
+    width: 180px; /* Reduce el tamaño de la imagen en móviles */
+    height: 180px;
+  }
+}
+
+/* Mejora de legibilidad para párrafos */
+main p {
+  max-width: 800px; /* Limita el ancho de los párrafos para mejor legibilidad */
+  margin-left: auto; /* Centra el párrafo */
+  margin-right: auto; /* Centra el párrafo */
+}
+
+.lead {
+  max-width: 700px; /* Un poco más estrecho para el lead */
+  margin-left: auto;
+  margin-right: auto;
+}
