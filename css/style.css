@@ -1,3 +1,7 @@
+/*
+ * Reseteo básico para asegurar consistencia en todos los navegadores.
+ * Elimina márgenes y paddings predeterminados y establece box-sizing.
+ */
 *,
 *::before,
 *::after {
@@ -6,48 +10,55 @@
   padding: 0;
 }
 
+/* Estilos globales para el cuerpo de la página y el HTML */
 html, body {
-  height: 100%;
+  height: 100%; /* Asegura que el HTML y el body ocupen toda la altura disponible */
   margin: 0;
   padding: 0;
-  background-color: #000000;
-  color: #ffffff;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  overflow-x: hidden;
+  background-color: #000000; /* Fondo oscuro para el tema del portfolio */
+  color: #ffffff; /* Color de texto principal blanco */
+  font-family: "Poppins", sans-serif; /* Fuente principal para todo el texto */
+  font-size: 14px; /* Tamaño de fuente base */
+  line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
+  overflow-x: hidden; /* Evita el scroll horizontal no deseado */
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  flex-direction: column; /* Permite que el footer se pegue al final de la página */
+  min-height: 100vh; /* Asegura que el cuerpo ocupe al menos el 100% del viewport */
 }
 
+/* Estilos para el contenido principal de cada página */
 main {
-  flex: 1;
-  padding: 50px 15px;
-  max-width: 1200px;
-  margin: 0 auto;
+  flex: 1; /* Permite que el contenido principal ocupe el espacio restante */
+  padding: 50px 15px; /* Padding superior/inferior y lateral */
+  max-width: 1200px; /* Ancho máximo del contenido para centrarlo */
+  margin: 0 auto; /* Centra el contenido horizontalmente */
 }
 
+/* Animación de entrada para elementos clave */
 @keyframes fadeInScale {
   from {
-    opacity: 0;
-    transform: scale(0.9);
+    opacity: 0; /* Empieza invisible */
+    transform: scale(0.9); /* Ligeramente encogido */
   }
   to {
-    opacity: 1;
-    transform: scale(1);
+    opacity: 1; /* Termina visible */
+    transform: scale(1); /* Tamaño normal */
   }
 }
+
+/* Aplica la animación al título principal en la página de inicio */
 .index main h1 {
-  animation: fadeInScale 1s ease-out forwards;
+  animation: fadeInScale 1s ease-out forwards; /* Duración, tipo de curva y mantiene el estado final */
 }
 
+/* Estilos generales para todos los encabezados */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #ff0000;
+  font-weight: 700; /* Negrita para los encabezados */
+  margin-bottom: 1rem; /* Margen inferior para separar del texto siguiente */
+  color: #ff0000; /* Color rojo distintivo para los encabezados */
 }
 
+/* Tamaños de fuente específicos para cada nivel de encabezado */
 h1 {
   font-size: 2.25rem;
 }
@@ -60,170 +71,202 @@ h3 {
   font-size: 1.4rem;
 }
 
+/* Clases de utilidad para colores de texto */
 .text-rojo {
-  color: #ff0000;
+  color: #ff0000; /* Color rojo principal */
 }
 
 .text-white-50 {
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: rgba(255, 255, 255, 0.5) !important; /* Texto blanco con 50% de opacidad */
 }
 
+/* Estilos para el texto "lead" (destacado) */
 .lead {
-  max-width: 700px;
+  max-width: 700px; /* Ancho máximo para el texto lead */
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; /* Centra el texto lead */
 }
 
+/* Estilos para párrafos dentro del main */
 main p {
-  max-width: 800px;
+  max-width: 800px; /* Ancho máximo para los párrafos */
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; /* Centra los párrafos */
 }
 
+/* Estilos para texto pequeño */
 .small {
   font-size: 0.85rem;
 }
 
+/* Estilos base para las cajas de habilidades y proyectos */
 .skill-box,
 .project-box {
-  background-color: #1a1a1a;
-  color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
-}
-.skill-box:hover,
-.project-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.6);
+  background-color: #1a1a1a; /* Fondo oscuro para las cajas */
+  color: #ffffff; /* Texto blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+  transition: transform 0.3s ease; /* Transición suave para el hover */
 }
 
+/* Efecto hover para las cajas de habilidades y proyectos */
+.skill-box:hover,
+.project-box:hover {
+  transform: translateY(-3px); /* Ligeramente elevado al pasar el ratón */
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.6); /* Sombra roja más pronunciada */
+}
+
+/* Estilos para el encabezado (header) */
 header {
-  background: black !important;
-  color: #ffffff;
+  background: black !important; /* Fondo negro para el header */
+  color: #ffffff; /* Color de texto blanco */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 5px 1rem 5px;
-  position: fixed;
+  justify-content: space-between; /* Espacio entre el logo y la navegación */
+  align-items: center; /* Alineación vertical al centro */
+  padding: 1rem 5px 1rem 5px; /* Padding interno */
+  position: fixed; /* Fijo en la parte superior de la ventana */
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  background-color: #000000; /
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  background-color: #000000; /* Fondo negro explícito */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Sombra inferior */
 }
+
+/* Estilos para la sección izquierda del encabezado (logo/nombre) */
 header .header-left {
   margin-left: 0;
   padding-left: 0;
-  font-weight: 700;
-  font-size: 1.6rem;
-  color: #ff0000;
-  text-decoration: none;
+  font-weight: 700; /* Negrita */
+  font-size: 1.6rem; /* Tamaño de fuente */
+  color: #ff0000; /* Color rojo */
+  text-decoration: none; /* Sin subrayado */
   display: flex;
-  align-items: center;
-}
-header .header-left span {
-  margin-left: 2px;
-  font-weight: 900;
-  color: #ff0000;
-  font-size: 1.8rem;
+  align-items: center; /* Alinea el texto y el símbolo */
 }
 
-header nav a {
-  color: #ffffff;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  margin-left: 20px;
-  text-decoration: none;
-  position: relative;
-  transition: color 0.3s ease;
+/* Estilos para el símbolo dentro del logo */
+header .header-left span {
+  margin-left: 2px;
+  font-weight: 900; /* Más negrita */
+  color: #ff0000; /* Color rojo */
+  font-size: 1.8rem; /* Tamaño ligeramente mayor */
 }
+
+/* Estilos para los enlaces de navegación */
+header nav a {
+  color: #ffffff; /* Color de texto blanco */
+  font-weight: 600; /* Seminegrita */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  font-size: 0.9rem; /* Tamaño de fuente */
+  margin-left: 20px; /* Margen entre enlaces */
+  text-decoration: none; /* Sin subrayado */
+  position: relative; /* Necesario para el pseudo-elemento ::after */
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Pseudo-elemento para la línea inferior de los enlaces de navegación */
 header nav a::after {
   content: "";
   position: absolute;
-  height: 2px;
-  width: 0%;
-  bottom: -4px;
+  height: 2px; /* Altura de la línea */
+  width: 0%; /* Empieza sin ancho */
+  bottom: -4px; /* Posición debajo del texto */
   left: 0;
-  background-color: #ff0000;
-  transition: width 0.3s ease;
+  background-color: #ff0000; /* Color rojo de la línea */
+  transition: width 0.3s ease; /* Transición suave para el ancho */
 }
+
+/* Efecto hover y estado activo para los enlaces de navegación */
 header nav a:hover, header nav a.active {
-  color: #ff0000;
+  color: #ff0000; /* Cambia el color del texto a rojo */
 }
+
+/* Expande la línea inferior al pasar el ratón o si el enlace está activo */
 header nav a:hover::after, header nav a.active::after {
-  width: 100%;
+  width: 100%; /* La línea se expande a todo el ancho */
 }
+
+/* Media queries para el encabezado en pantallas medianas (hasta 768px) */
 @media (max-width: 768px) {
   header {
-    padding: 0.8rem 10px;
+    padding: 0.8rem 10px; /* Ajusta el padding */
   }
   header .header-left {
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* Reduce el tamaño del logo */
   }
   header nav a {
-    margin-left: 8px;
-    font-size: 0.8rem;
+    margin-left: 8px; /* Reduce el margen entre enlaces */
+    font-size: 0.8rem; /* Reduce el tamaño de los enlaces */
   }
 }
+
+/* Media queries para el encabezado en pantallas pequeñas (hasta 576px) */
 @media (max-width: 576px) {
   header .header-left {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Reduce aún más el tamaño del logo */
   }
   header nav a {
-    margin-left: 6px;
-    font-size: 0.75rem;
+    margin-left: 6px; /* Reduce aún más el margen entre enlaces */
+    font-size: 0.75rem; /* Reduce aún más el tamaño de los enlaces */
   }
 }
 
+/* Estilos para el pie de página (footer) */
 footer {
-  text-align: center;
-  padding: 15px;
-  background: transparent !important;
-  color: #ffffff;
-  font-size: 0.85rem;
-  margin-top: auto;
+  text-align: center; /* Centra el texto */
+  padding: 15px; /* Padding interno */
+  background: transparent !important; /* Fondo transparente */
+  color: #ffffff; /* Color de texto blanco */
+  font-size: 0.85rem; /* Tamaño de fuente pequeño */
+  margin-top: auto; /* Empuja el footer hacia abajo */
 }
 
+/* Contenedores para habilidades y proyectos */
 .skills-container,
 .projects-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  gap: 20px; /* Espacio entre los elementos */
   padding: 0 15px;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1000px; /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Centra el contenedor */
 }
+
+/* Media query para contenedores en pantallas medianas */
 @media (max-width: 768px) {
   .skills-container,
   .projects-container {
-    gap: 15px;
+    gap: 15px; /* Reduce el espacio entre elementos */
   }
 }
 
+/* Estilos específicos para las cajas de habilidades */
 .skill-box,
 .project-box {
-  min-width: 120px;
-  height: 120px;
+  min-width: 120px; /* Ancho mínimo */
+  height: 120px; /* Altura fija */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  text-align: center;
+  flex-direction: column; /* Icono y texto apilados verticalmente */
+  align-items: center; /* Centra horizontalmente el contenido */
+  justify-content: center; /* Centra verticalmente el contenido */
+  font-weight: 700; /* Negrita */
+  text-align: center; /* Centra el texto */
   padding: 15px;
-  cursor: pointer;
+  cursor: pointer; /* Indica que es interactivo */
   font-size: 0.9rem;
 }
+
+/* Estilos para los iconos dentro de las cajas de habilidades/proyectos */
 .skill-box i,
 .project-box i {
-  font-size: 2.5rem;
-  margin-bottom: 8px;
-  color: #ff0000;
+  font-size: 2.5rem; /* Tamaño del icono */
+  margin-bottom: 8px; /* Margen inferior para separar del texto */
+  color: #ff0000; /* Color rojo para los iconos */
 }
+
+/* Media queries para cajas de habilidades/proyectos en pantallas medianas */
 @media (max-width: 768px) {
   .skill-box,
   .project-box {
@@ -233,9 +276,11 @@ footer {
   }
   .skill-box i,
   .project-box i {
-    font-size: 2rem;
+    font-size: 2rem; /* Reduce el tamaño del icono */
   }
 }
+
+/* Media queries para cajas de habilidades/proyectos en pantallas pequeñas */
 @media (max-width: 576px) {
   .skill-box,
   .project-box {
@@ -245,115 +290,144 @@ footer {
   }
   .skill-box i,
   .project-box i {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Reduce aún más el tamaño del icono */
   }
 }
 
+/* Estilos específicos para las cajas de proyectos (sobrescriben skill-box) */
 .project-box {
-  height: auto;
-  min-height: 200px;
+  height: auto; /* Altura automática para adaptarse al contenido */
+  min-height: 200px; /* Altura mínima */
   padding: 20px;
-  justify-content: flex-start;
-  text-align: left;
+  justify-content: flex-start; /* Alinea el contenido al inicio */
+  text-align: left; /* Alinea el texto a la izquierda */
 }
+
+/* Estilos para el título del proyecto dentro de la caja */
 .project-box h3 {
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 1.2rem;
-  color: #ff0000;
+  color: #ff0000; /* Color rojo */
 }
+
+/* Estilos para la descripción del proyecto dentro de la caja */
 .project-box p {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7); /* Texto blanco con opacidad */
   margin-bottom: 15px;
-  flex-grow: 1;
+  flex-grow: 1; /* Permite que el párrafo ocupe el espacio disponible */
 }
+
+/* Estilos de columna para las cajas de proyectos */
 .project-box.col {
-  flex: 0 0 auto;
-  width: calc(33.333% - 20px);
-  max-width: 350px;
+  flex: 0 0 auto; /* No crece ni encoge, tamaño fijo */
+  width: calc(33.333% - 20px); /* 3 columnas con espacio entre ellas */
+  max-width: 350px; /* Ancho máximo para cada columna */
 }
+
+/* Media query para 2 columnas en pantallas medianas */
 @media (max-width: 992px) {
   .project-box.col {
-    width: calc(50% - 15px);
+    width: calc(50% - 15px); /* 2 columnas con espacio */
   }
 }
+
+/* Media query para 1 columna en pantallas pequeñas */
 @media (max-width: 768px) {
   .project-box.col {
-    width: calc(100% - 15px);
-    max-width: 400px;
+    width: calc(100% - 15px); /* 1 columna */
+    max-width: 400px; /* Ancho máximo para la columna única */
   }
 }
 
+/* Estilos para el botón principal (Bootstrap override) */
 .btn-primary {
-  background-color: #ff0000 !important;
-  border-color: #ff0000 !important;
-  color: #ffffff !important;
-  padding: 12px 30px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-.btn-primary:hover {
-  background-color: #cc0000 !important;
-  border-color: #cc0000 !important;
+  background-color: #ff0000 !important; /* Fondo rojo */
+  border-color: #ff0000 !important; /* Borde rojo */
+  color: #ffffff !important; /* Texto blanco */
+  padding: 12px 30px; /* Padding */
+  font-size: 1.1rem; /* Tamaño de fuente */
+  font-weight: 700; /* Negrita */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease; /* Transición suave */
 }
 
+/* Efecto hover para el botón principal */
+.btn-primary:hover {
+  background-color: #cc0000 !important; /* Fondo rojo más oscuro */
+  border-color: #cc0000 !important; /* Borde rojo más oscuro */
+}
+
+/* Contenedor para los enlaces de proyectos (código, demo) */
 .project-links {
   margin-top: 15px;
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  justify-content: center; /* Centra los botones */
+  gap: 10px; /* Espacio entre botones */
 }
+
+/* Estilos para los botones dentro de los enlaces de proyectos */
 .project-links .btn {
   font-size: 0.8rem;
   padding: 5px 10px;
   border-radius: 3px;
 }
+
+/* Estilos para los iconos dentro de los botones de proyectos */
 .project-links .btn i {
-  margin-right: 5px;
+  margin-right: 5px; /* Espacio entre icono y texto */
 }
 
+/* Estilos para el formulario de contacto */
 form {
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: rgba(26, 26, 26, 0.85);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-  text-align: left;
-}
-form label {
-  color: #ffffff;
-  font-weight: 600;
-  margin-bottom: 8px;
-  display: block;
-}
-form .form-control {
-  background-color: #333 !important;
-  color: #ffffff !important;
-  border: 1px solid #555 !important;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: border-color 0.3s ease;
-}
-form .form-control:focus {
-  border-color: #ff0000 !important;
-  box-shadow: 0 0 0 0.3rem rgba(255, 0, 0, 0.3) !important;
-  background-color: #444 !important;
+  max-width: 600px; /* Ancho máximo del formulario */
+  margin: 0 auto; /* Centra el formulario */
+  background-color: rgba(26, 26, 26, 0.85); /* Fondo oscuro semitransparente */
+  padding: 30px; /* Padding interno */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Sombra */
+  text-align: left; /* Alinea el texto a la izquierda */
 }
 
-.profile-photo {
-  border: 1px solid #ff0000;
-  padding: 5px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
-  display: block;
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
+/* Estilos para las etiquetas del formulario */
+form label {
+  color: #ffffff; /* Color de texto blanco */
+  font-weight: 600; /* Seminegrita */
+  margin-bottom: 8px;
+  display: block; /* Ocupa todo el ancho disponible */
 }
+
+/* Estilos para los campos de control del formulario (input, textarea) */
+form .form-control {
+  background-color: #333 !important; /* Fondo oscuro */
+  color: #ffffff !important; /* Texto blanco */
+  border: 1px solid #555 !important; /* Borde gris */
+  padding: 10px 15px;
+  border-radius: 5px; /* Bordes redondeados */
+  transition: border-color 0.3s ease; /* Transición para el borde */
+}
+
+/* Estilos para los campos de control del formulario al enfocarse */
+form .form-control:focus {
+  border-color: #ff0000 !important; /* Borde rojo al enfocar */
+  box-shadow: 0 0 0 0.3rem rgba(255, 0, 0, 0.3) !important; /* Sombra roja */
+  background-color: #444 !important; /* Fondo ligeramente más claro */
+}
+
+/* Estilos para la foto de perfil */
+.profile-photo {
+  border: 1px solid #ff0000; /* Borde rojo */
+  padding: 5px; /* Padding interno */
+  border-radius: 50%; /* Forma circular */
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4); /* Sombra roja */
+  display: block;
+  width: 250px; /* Ancho fijo */
+  height: 250px; /* Altura fija */
+  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+}
+
+/* Media query para la foto de perfil en pantallas medianas */
 @media (max-width: 768px) {
   .profile-photo {
     width: 180px;
@@ -361,26 +435,27 @@ form .form-control:focus {
   }
 }
 
+/* Estilos para la caja de imagen (si se usa como placeholder o para iconos grandes) */
 .image-box {
-  background-color: #1a1a1a;
+  background-color: #1a1a1a; /* Fondo oscuro */
   width: 250px;
   height: 250px;
-  border-radius: 50%;
-  margin: 30px auto;
+  border-radius: 50%; /* Circular */
+  margin: 30px auto; /* Centra y añade margen */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 3px solid #ff0000;
-  box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+  border: 3px solid #ff0000; /* Borde rojo */
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.6); /* Sombra roja */
   font-weight: 700;
   color: #ffffff;
   font-size: 1.6rem;
 }
 
+/* Ajuste de margen superior para el contenedor de habilidades en la página de inicio */
 body.index .skills-container {
   margin-top: 150px;
 }
-
 
 /*# sourceMappingURL=style.css.map */

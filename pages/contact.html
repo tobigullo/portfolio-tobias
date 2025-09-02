@@ -1,21 +1,48 @@
 <!DOCTYPE html>
+<!-- Enlace al icono de la pestaña del navegador -->
+<link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact - Tobias Gullo</title>
+  <!-- Meta descripción para SEO -->
+  <meta name="description" content="Ponete en contacto con Tobías Gullo, desarrollador web Full Stack. Escribime para consultas, colaboraciones o proyectos." />
+  <!-- Palabras clave para SEO -->
+  <meta name="keywords" content="Tobías Gullo, contacto, desarrollador web, programación" />
+  <!-- Autor del sitio -->
+  <meta name="author" content="Tobías Gullo" />
+  <!-- URL canónica para evitar contenido duplicado en SEO -->
+  <link rel="canonical" href="https://tobiasgullo.com/contact.html" />
+
+  <!-- Open Graph Meta Tags para compartir en redes sociales -->
+  <meta property="og:title" content="Contacto | Tobías Gullo" />
+  <meta property="og:description" content="Contactá a Tobías Gullo, desarrollador Full Stack." />
+  <meta property="og:image" content="https://tobiasgullo.com/images/Foto1.webp" />
+  <meta property="og:url" content="https://tobiasgullo.com/contact.html" />
+  <!-- Twitter Card Meta Tags para compartir en Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Enlace a la fuente Poppins de Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Enlace a la hoja de estilos de Bootstrap 5.3.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Enlace a Font Awesome para iconos -->
   <script src="https://kit.fontawesome.com/08225ea096.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../css/style.css" /> <!-- RUTA ACTUALIZADA -->
+  <!-- Enlace a tu hoja de estilos personalizada (ruta relativa) -->
+  <link rel="stylesheet" href="../css/style.css" /> 
 </head>
 <body>
+  <!-- Encabezado de la página, fijo en la parte superior -->
   <header class="sticky-top">
     <div class="container d-flex justify-content-between align-items-center py-3">
+      <!-- Logo/Nombre del portfolio con un símbolo de código -->
       <a href="../index.html" class="header-left text-decoration-none">
         Tobias Gullo <span class="symbol">&lt;/&gt;</span>
       </a>
+      <!-- Navegación principal -->
       <nav>
+        <!-- Enlaces de navegación, 'active' para la página actual -->
         <a href="../index.html">Home</a>
         <a href="about.html">About</a>
         <a href="skills.html">Skills</a>
@@ -25,22 +52,30 @@
     </div>
   </header>
 
+  <!-- Contenido principal de la página de contacto -->
   <main class="container my-5">
     <section class="text-center py-5">
+      <!-- Título de la sección -->
       <h1 class="display-4 fw-bold mb-4 text-rojo">Contacto</h1>
+      <!-- Formulario de contacto que envía datos a Formspree.io -->
       <form action="https://formspree.io/f/xblagqdk" method="POST" id="contact-form">
+        <!-- Campo para el nombre -->
         <div class="mb-3 text-start">
           <label for="name" class="form-label">Nombre</label>
           <input type="text" id="name" name="name" class="form-control" placeholder="Tu nombre" required />
         </div>
+        <!-- Campo para el correo electrónico -->
         <div class="mb-3 text-start">
           <label for="email" class="form-label">Correo electrónico</label>
           <input type="email" id="email" name="email" class="form-control" placeholder="Tu email" required />
         </div>
+        <!-- Campo para el mensaje -->
         <div class="mb-3 text-start">
           <label for="message" class="form-label">Mensaje</label>
-          <textarea id="message" name="message" class="form-control" rows="4" placeholder="Escribe tu mensaje" required></textarea>
+          <textarea id="message" name="message" class="form-control" rows="4" placeholder="Escribe tu mensaje" required minlength="5"></textarea>
+          <!-- minlength="5" asegura que el mensaje tenga al menos 5 caracteres -->
         </div>
+        <!-- Botón de envío del formulario -->
         <div class="d-flex justify-content-center">
           <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
@@ -48,30 +83,32 @@
     </section>
   </main>
 
+  <!-- Pie de página -->
   <footer class="text-center py-3">
     <p>&copy; 2025 Tobias Gullo. Todos los derechos reservados. ¡Conéctate conmigo!</p>
   </footer>
 
+  <!-- Script JavaScript para manejar el envío del formulario con Fetch API -->
   <script>
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: data,
+    const form = document.getElementById('contact-form'); // Obtiene el formulario por su ID
+    form.addEventListener('submit', function (e) { // Agrega un listener para el evento 'submit'
+      e.preventDefault(); // Evita el envío predeterminado del formulario (recarga de página)
+      const data = new FormData(form); // Crea un objeto FormData con los datos del formulario
+      fetch(form.action, { // Envía los datos al endpoint de Formspree
+        method: form.method, // Método HTTP (POST)
+        body: data, // Cuerpo de la solicitud (datos del formulario)
         headers: {
-          'Accept': 'application/json'
+          'Accept': 'application/json' // Indica que se espera una respuesta JSON
         }
-      }).then(response => {
-        if (response.ok) {
-          alert('Mensaje enviado correctamente. ¡Gracias!');
-          form.reset();
-        } else {
-          alert('Hubo un problema al enviar el mensaje. Por favor, intenta de nuevo.');
+      }).then(response => { // Maneja la respuesta de la solicitud
+        if (response.ok) { // Si la respuesta es exitosa (código 2xx)
+          alert('Mensaje enviado correctamente. ¡Gracias!'); // Muestra un mensaje de éxito
+          form.reset(); // Limpia el formulario
+        } else { // Si hubo un error en la respuesta
+          alert('Hubo un problema al enviar el mensaje. Por favor, intenta de nuevo.'); // Muestra un mensaje de error
         }
-      }).catch(() => {
-        alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.');
+      }).catch(() => { // Captura errores de red o de la promesa
+        alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.'); // Muestra un mensaje de error genérico
       });
     });
   </script>

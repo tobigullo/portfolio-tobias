@@ -1,38 +1,50 @@
-// Variables y mixins
+// Variables y mixins para el tema del portfolio
 
-$primary-color: #ff0000;
-$secondary-color: #cc0000;
-$background-dark: #000000;
-$text-light: #ffffff;
-$box-background: #1a1a1a;
-$box-text: #ffffff;
-$link-color: #ff0000;
-$link-hover-color: #ff4d4d;
+// Colores
+$primary-color: #ff0000;    // Rojo principal para acentos, encabezados, etc.
+$secondary-color: #cc0000;  // Rojo más oscuro para estados hover
+$background-dark: #000000;  // Fondo principal oscuro
+$text-light: #ffffff;      // Color de texto claro
+$box-background: #1a1a1a;  // Fondo para cajas de habilidades/proyectos
+$box-text: #ffffff;        // Color de texto dentro de las cajas
+$link-color: #ff0000;      // Color de enlaces (generalmente el mismo que primary-color)
+$link-hover-color: #ff4d4d; // Color de enlaces al pasar el ratón
 
+// Puntos de quiebre para Responsive Design
+// Se usan en los mixins @include breakpoint-up y @include breakpoint-down
 $breakpoints: (
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
+  sm: 576px,  // Pequeño (ej. teléfonos)
+  md: 768px,  // Mediano (ej. tabletas)
+  lg: 992px,  // Grande (ej. laptops)
+  xl: 1200px  // Extra grande (ej. monitores grandes)
 );
 
-$font-family-poppins: 'Poppins', sans-serif;
-$spacing-unit: 1rem;
+// Fuentes
+$font-family-poppins: 'Poppins', sans-serif; // Fuente principal del proyecto
 
-// Mixins
+// Espaciado
+$spacing-unit: 1rem; // Unidad base para márgenes y paddings
 
+// Mixins reutilizables
+
+// Mixin para aplicar estilos a partir de un tamaño de pantalla hacia arriba (min-width)
+// Uso: @include breakpoint-up(md) { ... }
 @mixin breakpoint-up($size) {
   @media (min-width: map-get($breakpoints, $size)) {
-    @content;
+    @content; // Inserta el contenido del bloque donde se llama el mixin
   }
 }
 
+// Mixin para aplicar estilos hasta un tamaño de pantalla hacia abajo (max-width)
+// Uso: @include breakpoint-down(md) { ... }
 @mixin breakpoint-down($size) {
   @media (max-width: map-get($breakpoints, $size)) {
-    @content;
+    @content; // Inserta el contenido del bloque donde se llama el mixin
   }
 }
 
+// Mixin para aplicar transiciones CSS de forma concisa
+// Uso: @include transition(background-color, 0.3s, ease);
 @mixin transition($property: all, $duration: 0.3s, $timing-function: ease) {
   transition: $property $duration $timing-function;
 }

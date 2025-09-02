@@ -1,21 +1,31 @@
 <!DOCTYPE html>
+<!-- Enlace al icono de la pestaña del navegador -->
+<link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Skills - Tobias Gullo</title>
+  <!-- Enlace a la fuente Poppins de Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Enlace a la hoja de estilos de Bootstrap 5.3.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Enlace a Font Awesome para iconos -->
   <script src="https://kit.fontawesome.com/08225ea096.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../css/style.css" /> <!-- RUTA ACTUALIZADA -->
+  <!-- Enlace a tu hoja de estilos personalizada (ruta relativa) -->
+  <link rel="stylesheet" href="../css/style.css" /> 
 </head>
 <body>
+  <!-- Encabezado de la página, fijo en la parte superior -->
   <header class="sticky-top">
     <div class="container d-flex justify-content-between align-items-center py-3">
+      <!-- Logo/Nombre del portfolio con un símbolo de código -->
       <a href="../index.html" class="header-left text-decoration-none">
         Tobias Gullo <span class="symbol">&lt;/&gt;</span>
       </a>
+      <!-- Navegación principal -->
       <nav>
+        <!-- Enlaces de navegación, 'active' para la página actual -->
         <a href="../index.html">Home</a>
         <a href="about.html">About</a>
         <a href="skills.html" class="active">Skills</a>
@@ -25,26 +35,34 @@
     </div>
   </header>
 
+  <!-- Contenido principal de la página de habilidades -->
   <main class="container my-5">
     <section class="text-center py-5">
+      <!-- Título de la sección -->
       <h1 class="display-4 fw-bold mb-4 text-rojo">Mis Habilidades</h1>
+      <!-- Párrafo introductorio de la sección -->
       <p class="lead text-white-50 mb-5">
         Aquí te presento algunas de las tecnologías y herramientas con las que trabajo.
       </p>
+      <!-- Contenedor de habilidades con diseño flexible -->
       <div class="skills-container d-flex flex-wrap justify-content-center gap-4">
+        <!-- Cada div.skill-box representa una habilidad con su icono y nombre -->
         <div class="skill-box"><i class="fab fa-html5"></i><span>HTML5</span></div>
         <div class="skill-box"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
         <div class="skill-box"><i class="fab fa-git-alt"></i><span>Git</span></div>
         <div class="skill-box"><i class="fab fa-github"></i><span>GitHub</span></div>
         <div class="skill-box"><i class="fab fa-sass"></i><span>SASS</span></div>
+        <!-- Puedes añadir más habilidades aquí siguiendo el mismo patrón -->
       </div>
     </section>
   </main>
 
+  <!-- Pie de página -->
   <footer class="text-center py-3">
     <p>&copy; 2025 Tobias Gullo. Todos los derechos reservados.</p>
   </footer>
 
+  <!-- Script de Bootstrap para funcionalidades JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
